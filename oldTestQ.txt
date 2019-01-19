@@ -1,0 +1,104 @@
+import rubicon as rub
+import queue
+import time
+import sys
+global speed
+import random as r
+import auto as ft
+import os
+from datetime import datetime
+from threading import Timer
+fastSpeed = 0.005
+slowSpeed = 0.5
+rule = r.randint(0,255)
+increment = 1
+
+rows, columns = os.popen('stty size', 'r').read().split()
+rows = int(rows)
+columns = int(columns)
+times = {'autoT' : 0.05, 'storyT':10}
+
+L = queue.Queue(maxsize=20)
+
+def Lauto():
+    L.put('auto')
+def Lstory():
+    L.put('story')
+
+lastLineDict = {'ll':ft.rstart(columns)}
+
+def delay_print(s,sec):
+    for c in s:
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(sec)
+    print("")
+
+# def sendauto():
+#     print("inParser")
+#     return(parser('auto'))
+
+def parser(cmd):
+  # print("inParser")
+  if(cmd=='auto'):
+    lastLine = ft.genStep(lastLineDict['ll'],steprule=rule) # generates a line, using auto.py
+    printedLine = [ft.getDict(str(i)) for i in lastLine] # turns 0s and 1s into blank spaces and chars
+    lastLineDict['ll'] = lastLine #turn printed line into last line
+    delay_print(printedLine,fastSpeed)
+    # bylineQ(increment)
+    # Timer(times['autoT'], Lauto).start()
+    # global increment
+    # increment = bylineQ()
+  if(cmd=='story'):
+    print("instory")
+    # bylineQ()
+
+    # Timer(times['storyT'], Lstory).start()
+
+def startTimer():
+    print('inStartTimer')
+    # L.put('auto',timeout=5)
+    L.put('auto')
+    L.put('story')
+
+def printit():
+  print("inPrintit")
+  Timer(5, printit).start()
+  print("Hello, World!")
+# startTimer()
+# printit()
+
+def bylineQ(inc):
+    # global increment
+    print("increment::::  " + str(inc))
+    if(inc % 10 == 0):
+        parser('story')
+    else:
+        parser('auto')
+    # Q = queue.Queue(maxsize=20)
+    # global increment
+    return(inc + 1)
+    # bylineQ(increment)
+
+parser('auto')
+
+while(True):
+    increment = bylineQ(increment)
+#
+# while(True):
+#     parser(L.get())
+    # print(L)
+# secsGet = 5
+# secsPut= delta_t*2
+# qUp()
+# Tput = Timer(secsPut, qUp('story'))
+# Tput.start()
+#
+# Tget = Timer(secsGet, delay_print("2"))
+# Tget.start()
+#
+# if __name__ == '__main__':
+#     while(True):
+#         fractaltest.ca(steprule=r.randint(0,255),stepMax=10)
+#         delay_print("jj")
+#         time.sleep(speed)

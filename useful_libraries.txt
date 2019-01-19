@@ -1,0 +1,93 @@
+Do NOT forget to create an "In memoriam" post for
+
+Henry Zietlow
+for
+January 14th
+
+(ascii image of his face,
+"2000 -2019"
+maybe a quote)
+
+
+
+
+Some libraries I found while researching for the project, and what I could do with them::::
+
+python:
+pyfiglet
+-generates ascii lettering
+.----------------.  .----------------.  .----------------.  .----------------.   .----------------.  .----------------.  .----------------.  .----------------.
+| .--------------. || .--------------. || .--------------. || .--------------. | | .--------------. || .--------------. || .--------------. || .--------------. |
+| |   _____      | || |     _____    | || |  ___  ____   | || |  _________   | | | |  _________   | || |  ____  ____  | || |     _____    | || |    _______   | |
+| |  |_   _|     | || |    |_   _|   | || | |_  ||_  _|  | || | |_   ___  |  | | | | |  _   _  |  | || | |_   ||   _| | || |    |_   _|   | || |   /  ___  |  | |
+| |    | |       | || |      | |     | || |   | |_/ /    | || |   | |_  \_|  | | | | |_/ | | \_|  | || |   | |__| |   | || |      | |     | || |  |  (__ \_|  | |
+| |    | |   _   | || |      | |     | || |   |  __'.    | || |   |  _|  _   | | | |     | |      | || |   |  __  |   | || |      | |     | || |   '.___`-.   | |
+| |   _| |__/ |  | || |     _| |_    | || |  _| |  \ \_  | || |  _| |___/ |  | | | |    _| |_     | || |  _| |  | |_  | || |     _| |_    | || |  |`\____) |  | |
+| |  |________|  | || |    |_____|   | || | |____||____| | || | |_________|  | | | |   |_____|    | || | |____||____| | || |    |_____|   | || |  |_______.'  | |
+| |              | || |              | || |              | || |              | | | |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' | | '--------------' || '--------------' || '--------------' || '--------------' |
+'----------------'  '----------------'  '----------------'  '----------------'   '----------------'  '----------------'  '----------------'  '----------------'
+all you need is
+
+print_figlet(string, font)
+
+, with a font from the list of fonts included in the package
+
+
+json
+useful for writing/grabbing text from file
+
+
+capa
+
+prints images in command line
+
+
+----queue:
+
+for use with scheduling events:
+to set a time for an event recursivey:
+Timer(timeinSeconds, functionsName).start()
+
+
+
+
+
+
+
+---------import subprocess
+
+then use
+
+subprocess.check_output([])
+
+to send bash arguments in the form of strings in an array
+
+ex:
+print subprocess.check_output(['ls','-l'])
+
+useful for:
+
+
+for command line::
+tiv "image.jpg"
+
+prints out images in command line form really nicely
+
+
+
+
+
+
+
+-----------------
+
+Idea for how to organize jobs::::
+
+
+create a queue that loads up with requests from different aspects of the program.
+
+you'd have a fractal in the queue, followed by some weather, followed by a rubicon story,
+and each program would either have a probability of being chosen, or would be chosen after a set
+amount of time.
+(with fractals inbetween)
